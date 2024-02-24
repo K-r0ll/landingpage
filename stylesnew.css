@@ -15,6 +15,14 @@ canvas {
   z-index: -1;
 }
 
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
 .pizza-slice {
   background: url('pizzaslice.png');
   background-size:     cover;

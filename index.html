@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 <head>
   <meta charset=UTF-8 />
@@ -46,9 +48,10 @@
 
           </div>
           <div class="modal-body">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                aria-valuenow="10%" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+            <p>🚧 Project in progress</p>
+            <div class="progress progress-pizza">
+              <div class="progress-bar progress-bar-pizza progress-bar-striped progress-bar-animated bg-info"
+                role="progressbar" aria-valuenow="10%" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
             </div>
             <h5 style="margin-top: 10px; text-align: center;">🍕 Exciting News for Pizza Lovers! 🍕</h5>
             <p>Hey pizza lovers! Brace yourselves for something amazing, pizza portal is on the horizon!</p>
@@ -79,11 +82,25 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <h5 style="text-align: center;">🚀 Streamline Your Project Management with Cohub! 🚀</h5>
+            <p>🔎 Product discovery</p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                aria-valuenow="10%" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+            </div>
+            <h5 style="margin-top: 10px; text-align: center;">🚀 Streamline Your Project Management with Cohub! 🚀</h5>
             <p>Cohub is your go-to solution for all things project management! Why? Because it integrates all the
               necessary tools you need to manage your project in one place. Say goodbye to switching between multiple
               apps - Cohub has everything you need right at your fingertips. Manage tasks, schedules, documents, and
               team communication seamlessly with Cohub!</p>
+            Core features:
+            <ul>
+              <li>🪪 Build Your Own company Website with Our CMS</li>
+              <li>💬 Seamless conferences, chats, and video calls with our communication module..</li>
+              <li>📊 Efficient project planning made simple.</li>
+              <li>📖 Your company's Wikipedia, all in one place</li>
+              <li>📧 Personalized emails, your message, your way</li>
+              <li>🚀 Streamline information flow, boost productivity</li>
+            </ul>
             <p>
             </p>
           </div>
@@ -95,21 +112,27 @@
   </div>
   <script src="three.min.js"></script>
   <script>
-    var progress = $('.progress');
-    var progressBar = $('.progress-bar');
+    var progress = $('.progress-pizza');
+    var progressBar = $('.progress-bar-pizza');
 
-    setTimeout(function () {
-      progressBar.css('width', '10%');
+    startProgressBar = function () {
       setTimeout(function () {
-        progressBar.css('width', '30%');
+        progressBar.removeClass("notransition");
+        progressBar.css('width', '25%');
         setTimeout(function () {
-          progressBar.css('width', '100%');
+          progressBar.css('width', '60%');
           setTimeout(function () {
-            progress.css('display', 'none');
-          }, 500); // WAIT 5 milliseconds
-        }, 2000); // WAIT 2 seconds
-      }, 1000); // WAIT 1 seconds
-    }, 1000); // WAIT 1 second
+            progressBar.css('width', '100%');
+            setTimeout(function () {
+              progressBar.addClass("notransition")
+              progressBar.css('width', '0%');
+              startProgressBar()
+            }, 2000); // WAIT 5 milliseconds
+          }, 4000); // WAIT 2 seconds
+        }, 3000); // WAIT 1 seconds
+      }, 2000); // WAIT 1 second
+    }
+    startProgressBar()
 
     let scene, camera, renderer, stars, starGeo;
 
@@ -177,7 +200,6 @@
     init();
 
   </script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
